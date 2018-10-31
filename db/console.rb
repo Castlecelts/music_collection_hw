@@ -14,6 +14,10 @@ artist1.save
 album1 = Album.new('title' => 'St Anger', 'genre' => 'metal', 'artist_id' => artist1.id)
 
 album1.save
-random = Artist.list()
+# random = Artist.list()
+#
+# p random
 
-p random
+random1 = Album.list_all_by_artist('Metallica')
+
+p random1
