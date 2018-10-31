@@ -1,5 +1,6 @@
 require_relative('./artist')
 require_relative('../db/sql_runner')
+require('pry')
 
 class Album
 
@@ -31,11 +32,14 @@ class Album
     return results.map {|album| Album.new(album)}
   end
 
-  def self.list_all_by_artist(artist_id)
-    sql = "SELECT * FROM albums WHERE artist_id = $1"
-    values = [artist_id]
+  def list_artist_of_album()
+    sql = "SELECT * FROM artists WHERE id = $1"
+    values = [@customer_id]
     results = SqlRunner.run(sql, values)
-    return results.map {|album| Album.new(album)}
+    # binding.pry
+    artist_hash = results.first
+    artist = Artist.new(artist_hash)
+    return artist
   end
 
 

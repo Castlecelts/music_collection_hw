@@ -1,9 +1,10 @@
 require_relative('./sql_runner')
 require_relative('../models/album')
 require_relative('../models/artist')
+require('pry')
 
-Album.delete_all()
-Artist.delete_all()
+# Album.delete_all()
+# Artist.delete_all()
 
 
 artist1 = Artist.new('name' => 'Metallica')
@@ -18,6 +19,10 @@ album1.save
 #
 # p random
 
-random1 = Album.list_all_by_artist('Metallica')
+random1 = Artist.list_albums_by_artist(10)
 
 p random1
+
+test1 = album1.list_artist_of_album
+
+p test1
